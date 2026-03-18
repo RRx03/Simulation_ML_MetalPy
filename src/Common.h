@@ -16,6 +16,10 @@ typedef struct {
   uint32_t num_alive;
   uint32_t tick;
 
+  float positions_x[MAX_CREATURES];
+  float positions_y[MAX_CREATURES];
+  float angles[MAX_CREATURES];
+
   // C++ écrit, Python lit
   float perceptions[MAX_CREATURES][NUM_INPUTS]; // 30 400 octets
   float energies[MAX_CREATURES];                //    800 octets

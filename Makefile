@@ -1,10 +1,9 @@
-
 APP_NAME = app
 BUILD_DIR = ./build
 SRC_FOLDER = ./src
 OBJS_FOLDER = $(BUILD_DIR)/objs
 BIN_PATH = $(BUILD_DIR)/$(APP_NAME)
-METALLIB = $(BUILD_DIR)/default.metallib
+SIM_METALLIB = $(BUILD_DIR)/sim.metallib
 
 CXX = clang++
 CXXFLAGS = -std=c++17 -I. -I$(SRC_FOLDER) -I/opt/homebrew/include -MMD -MP
@@ -17,10 +16,10 @@ OBJS := $(patsubst $(SRC_FOLDER)/%.cpp, $(OBJS_FOLDER)/%.o, $(SRCS))
 
 DEPS := $(OBJS:.o=.d)
 
-.PHONY: all clean run copy_shaders
+.PHONY: all clean run brain
 
 
-all: $(BIN_PATH) $(METALLIB)
+all: $(BIN_PATH) $(METALLIB) $(SIM_METALLIB)
 
 $(BIN_PATH): $(OBJS)
 	@echo "Linkage de l'exécutable..."
@@ -33,13 +32,14 @@ $(OBJS_FOLDER)/%.o: $(SRC_FOLDER)/%.cpp
 	@mkdir -p $(OBJS_FOLDER)
 	$(CXX) $(CXXFLAGS) $(SDL2_CFLAGS) -c $< -o $@
 
-$(METALLIB): shaders/shader.metal
-	@echo "Compilation des Shaders..."
+
+$(SIM_METALLIB): shaders/sim_shaders.metal $(SRC_FOLDER)/CreatureRenderData.h
+	@echo "Compilation des Shaders de simulation..."
 	@mkdir -p $(BUILD_DIR)
-	xcrun -sdk macosx metal -c shaders/shader.metal -o $(BUILD_DIR)/shader.air
-	xcrun -sdk macosx metallib $(BUILD_DIR)/shader.air -o $(METALLIB)
-	@rm $(BUILD_DIR)/shader.air 
-	@echo "Shaders compilés dans $(METALLIB)"
+	xcrun -sdk macosx metal -I$(SRC_FOLDER) -c shaders/sim_shaders.metal -o $(BUILD_DIR)/sim_shaders.air
+	xcrun -sdk macosx metallib $(BUILD_DIR)/sim_shaders.air -o $(SIM_METALLIB)
+	@rm $(BUILD_DIR)/sim_shaders.air
+	@echo "Shaders sim compilés dans $(SIM_METALLIB)"
 
 -include $(DEPS)
 
@@ -48,7 +48,7 @@ clean:
 	@echo "Dossier build nettoyé."
 
 brain:
-	python src/main.py
+	python3 src/main.py
 
 run: all
 	@trap 'kill 0' EXIT; $(BIN_PATH) & python3 src/main.py
@@ -56,6 +56,6 @@ run: all
 bear:
 	make clean
 	bear -- make
-	
-setup : 
-	xcode-select --install	
+
+setup:
+	xcode-select --install

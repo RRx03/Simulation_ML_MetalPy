@@ -112,8 +112,9 @@ build/objs/Renderer.o: src/Renderer.cpp src/Renderer.hpp \
   metal-cpp/QuartzCore/CAMetalLayer.hpp \
   metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp \
   metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp \
-  metal-cpp/QuartzCore/../Foundation/NSTypes.hpp \
-  /opt/homebrew/include/SDL2/SDL.h /opt/homebrew/include/SDL2/SDL_main.h \
+  metal-cpp/QuartzCore/../Foundation/NSTypes.hpp src/SimRenderer.hpp \
+  src/CreatureRenderData.h /opt/homebrew/include/SDL2/SDL.h \
+  /opt/homebrew/include/SDL2/SDL_main.h \
   /opt/homebrew/include/SDL2/SDL_stdinc.h \
   /opt/homebrew/include/SDL2/SDL_config.h \
   /opt/homebrew/include/SDL2/SDL_platform.h \
@@ -161,7 +162,7 @@ build/objs/Renderer.o: src/Renderer.cpp src/Renderer.hpp \
   /opt/homebrew/include/SDL2/SDL_timer.h \
   /opt/homebrew/include/SDL2/SDL_version.h \
   /opt/homebrew/include/SDL2/SDL_locale.h \
-  /opt/homebrew/include/SDL2/SDL_misc.h src/MathUtils.h src/Shared.h
+  /opt/homebrew/include/SDL2/SDL_misc.h
 src/Renderer.hpp:
 src/SharedMemory.hpp:
 src/Common.h:
@@ -295,6 +296,8 @@ metal-cpp/QuartzCore/CAMetalLayer.hpp:
 metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp:
 metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp:
 metal-cpp/QuartzCore/../Foundation/NSTypes.hpp:
+src/SimRenderer.hpp:
+src/CreatureRenderData.h:
 /opt/homebrew/include/SDL2/SDL.h:
 /opt/homebrew/include/SDL2/SDL_main.h:
 /opt/homebrew/include/SDL2/SDL_stdinc.h:
@@ -345,5 +348,3 @@ metal-cpp/QuartzCore/../Foundation/NSTypes.hpp:
 /opt/homebrew/include/SDL2/SDL_version.h:
 /opt/homebrew/include/SDL2/SDL_locale.h:
 /opt/homebrew/include/SDL2/SDL_misc.h:
-src/MathUtils.h:
-src/Shared.h:

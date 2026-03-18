@@ -1,6 +1,8 @@
+// Renderer.hpp
 #pragma once
 
 #include "SharedMemory.hpp"
+#include "SimRenderer.hpp"
 #include "metal-cpp/Metal/Metal.hpp"
 #include "metal-cpp/QuartzCore/QuartzCore.hpp"
 #include <SDL.h>
@@ -12,28 +14,29 @@ public:
   void renderFrame();
   void resize(int width, int height);
 
+  // Accès au shared memory pour la boucle principale
+  SharedMemory &sharedMemory() { return _shm; }
+  SimRenderer &simRenderer() { return _simRenderer; }
+
 private:
   void buildShaders();
   void buildBuffers();
-  void updateUniforms();
 
   MTL::Device *_device = nullptr;
   MTL::CommandQueue *_commandQueue = nullptr;
   CA::MetalLayer *_layer = nullptr;
 
-  MTL::ComputePipelineState *_computePSO = nullptr;
-  MTL::RenderPipelineState *_renderPSO = nullptr;
-  MTL::Texture *_depthTexture = nullptr;
-  MTL::DepthStencilState *_depthStencilState = nullptr;
-
-  MTL::Buffer *_vertexBuffer = nullptr;
-  MTL::Buffer *_computeBuffer = nullptr;
-  MTL::Buffer *_uniformBuffer;
+  // Simulation rendering
   SharedMemory _shm;
+  SimRenderer _simRenderer;
 
-  float _angle;        // TEMPLATE
-  int _width, _height; // Pour le ratio d'aspect
-
+  // Textures
+  MTL::Texture *_depthTexture = nullptr;
   MTL::Texture *_msaaTexture = nullptr;
   const int _sampleCount = 4;
+
+  // Dimensions
+  int _width = 800;
+  int _height = 600;
+  float _time = 0.0f;
 };

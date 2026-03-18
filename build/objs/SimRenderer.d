@@ -1,75 +1,33 @@
-build/objs/main.o: src/main.cpp /opt/homebrew/include/SDL2/SDL.h \
-  /opt/homebrew/include/SDL2/SDL_main.h \
-  /opt/homebrew/include/SDL2/SDL_stdinc.h \
-  /opt/homebrew/include/SDL2/SDL_config.h \
-  /opt/homebrew/include/SDL2/SDL_platform.h \
-  /opt/homebrew/include/SDL2/begin_code.h \
-  /opt/homebrew/include/SDL2/close_code.h \
-  /opt/homebrew/include/SDL2/SDL_assert.h \
-  /opt/homebrew/include/SDL2/SDL_atomic.h \
-  /opt/homebrew/include/SDL2/SDL_audio.h \
-  /opt/homebrew/include/SDL2/SDL_error.h \
-  /opt/homebrew/include/SDL2/SDL_endian.h \
-  /opt/homebrew/include/SDL2/SDL_mutex.h \
-  /opt/homebrew/include/SDL2/SDL_thread.h \
-  /opt/homebrew/include/SDL2/SDL_rwops.h \
-  /opt/homebrew/include/SDL2/SDL_clipboard.h \
-  /opt/homebrew/include/SDL2/SDL_cpuinfo.h \
-  /opt/homebrew/include/SDL2/SDL_events.h \
-  /opt/homebrew/include/SDL2/SDL_video.h \
-  /opt/homebrew/include/SDL2/SDL_pixels.h \
-  /opt/homebrew/include/SDL2/SDL_rect.h \
-  /opt/homebrew/include/SDL2/SDL_surface.h \
-  /opt/homebrew/include/SDL2/SDL_blendmode.h \
-  /opt/homebrew/include/SDL2/SDL_keyboard.h \
-  /opt/homebrew/include/SDL2/SDL_keycode.h \
-  /opt/homebrew/include/SDL2/SDL_scancode.h \
-  /opt/homebrew/include/SDL2/SDL_mouse.h \
-  /opt/homebrew/include/SDL2/SDL_joystick.h \
-  /opt/homebrew/include/SDL2/SDL_guid.h \
-  /opt/homebrew/include/SDL2/SDL_gamecontroller.h \
-  /opt/homebrew/include/SDL2/SDL_sensor.h \
-  /opt/homebrew/include/SDL2/SDL_quit.h \
-  /opt/homebrew/include/SDL2/SDL_gesture.h \
-  /opt/homebrew/include/SDL2/SDL_touch.h \
-  /opt/homebrew/include/SDL2/SDL_filesystem.h \
-  /opt/homebrew/include/SDL2/SDL_haptic.h \
-  /opt/homebrew/include/SDL2/SDL_hidapi.h \
-  /opt/homebrew/include/SDL2/SDL_hints.h \
-  /opt/homebrew/include/SDL2/SDL_loadso.h \
-  /opt/homebrew/include/SDL2/SDL_log.h \
-  /opt/homebrew/include/SDL2/SDL_messagebox.h \
-  /opt/homebrew/include/SDL2/SDL_metal.h \
-  /opt/homebrew/include/SDL2/SDL_power.h \
-  /opt/homebrew/include/SDL2/SDL_render.h \
-  /opt/homebrew/include/SDL2/SDL_shape.h \
-  /opt/homebrew/include/SDL2/SDL_system.h \
-  /opt/homebrew/include/SDL2/SDL_timer.h \
-  /opt/homebrew/include/SDL2/SDL_version.h \
-  /opt/homebrew/include/SDL2/SDL_locale.h \
-  /opt/homebrew/include/SDL2/SDL_misc.h \
-  metal-cpp/Foundation/Foundation.hpp metal-cpp/Foundation/NSArray.hpp \
-  metal-cpp/Foundation/NSObject.hpp metal-cpp/Foundation/NSDefines.hpp \
-  metal-cpp/Foundation/NSPrivate.hpp metal-cpp/Foundation/NSTypes.hpp \
-  metal-cpp/Foundation/NSEnumerator.hpp \
-  metal-cpp/Foundation/NSAutoreleasePool.hpp \
-  metal-cpp/Foundation/NSBundle.hpp \
-  metal-cpp/Foundation/NSNotification.hpp \
-  metal-cpp/Foundation/NSDictionary.hpp \
-  metal-cpp/Foundation/NSString.hpp \
-  metal-cpp/Foundation/NSObjCRuntime.hpp \
-  metal-cpp/Foundation/NSRange.hpp metal-cpp/Foundation/NSData.hpp \
-  metal-cpp/Foundation/NSDate.hpp metal-cpp/Foundation/NSError.hpp \
-  metal-cpp/Foundation/NSLock.hpp metal-cpp/Foundation/NSNumber.hpp \
-  metal-cpp/Foundation/NSProcessInfo.hpp metal-cpp/Foundation/NSSet.hpp \
-  metal-cpp/Foundation/NSSharedPtr.hpp metal-cpp/Foundation/NSURL.hpp \
-  metal-cpp/Metal/Metal.hpp metal-cpp/Metal/MTLAccelerationStructure.hpp \
+build/objs/SimRenderer.o: src/SimRenderer.cpp src/SimRenderer.hpp \
+  src/Common.h src/CreatureRenderData.h metal-cpp/Metal/Metal.hpp \
+  metal-cpp/Metal/MTLAccelerationStructure.hpp \
   metal-cpp/Metal/../Foundation/Foundation.hpp \
-  metal-cpp/Metal/MTLAccelerationStructureTypes.hpp \
-  metal-cpp/Metal/MTLDefines.hpp \
+  metal-cpp/Metal/../Foundation/NSArray.hpp \
+  metal-cpp/Metal/../Foundation/NSObject.hpp \
   metal-cpp/Metal/../Foundation/NSDefines.hpp \
-  metal-cpp/Metal/MTLPrivate.hpp metal-cpp/Metal/MTLResource.hpp \
-  metal-cpp/Metal/MTLAllocation.hpp metal-cpp/Metal/MTLHeaderBridge.hpp \
+  metal-cpp/Metal/../Foundation/NSPrivate.hpp \
+  metal-cpp/Metal/../Foundation/NSTypes.hpp \
+  metal-cpp/Metal/../Foundation/NSEnumerator.hpp \
+  metal-cpp/Metal/../Foundation/NSAutoreleasePool.hpp \
+  metal-cpp/Metal/../Foundation/NSBundle.hpp \
+  metal-cpp/Metal/../Foundation/NSNotification.hpp \
+  metal-cpp/Metal/../Foundation/NSDictionary.hpp \
+  metal-cpp/Metal/../Foundation/NSString.hpp \
+  metal-cpp/Metal/../Foundation/NSObjCRuntime.hpp \
+  metal-cpp/Metal/../Foundation/NSRange.hpp \
+  metal-cpp/Metal/../Foundation/NSData.hpp \
+  metal-cpp/Metal/../Foundation/NSDate.hpp \
+  metal-cpp/Metal/../Foundation/NSError.hpp \
+  metal-cpp/Metal/../Foundation/NSLock.hpp \
+  metal-cpp/Metal/../Foundation/NSNumber.hpp \
+  metal-cpp/Metal/../Foundation/NSProcessInfo.hpp \
+  metal-cpp/Metal/../Foundation/NSSet.hpp \
+  metal-cpp/Metal/../Foundation/NSSharedPtr.hpp \
+  metal-cpp/Metal/../Foundation/NSURL.hpp \
+  metal-cpp/Metal/MTLAccelerationStructureTypes.hpp \
+  metal-cpp/Metal/MTLDefines.hpp metal-cpp/Metal/MTLPrivate.hpp \
+  metal-cpp/Metal/MTLResource.hpp metal-cpp/Metal/MTLAllocation.hpp \
+  metal-cpp/Metal/MTLHeaderBridge.hpp \
   metal-cpp/Metal/MTLStageInputOutputDescriptor.hpp \
   metal-cpp/Metal/MTLArgument.hpp metal-cpp/Metal/MTLDataType.hpp \
   metal-cpp/Metal/MTLTensor.hpp metal-cpp/Metal/MTLTypes.hpp \
@@ -143,99 +101,37 @@ build/objs/main.o: src/main.cpp /opt/homebrew/include/SDL2/SDL.h \
   metal-cpp/Metal/MTL4PipelineDataSetSerializer.hpp \
   metal-cpp/Metal/MTL4Archive.hpp \
   metal-cpp/Metal/MTL4BinaryFunctionDescriptor.hpp \
-  metal-cpp/Metal/MTL4LinkingDescriptor.hpp \
-  metal-cpp/QuartzCore/QuartzCore.hpp \
-  metal-cpp/QuartzCore/CAMetalDrawable.hpp \
-  metal-cpp/QuartzCore/../Metal/MTLDrawable.hpp \
-  metal-cpp/QuartzCore/../Metal/MTLTexture.hpp \
-  metal-cpp/QuartzCore/CADefines.hpp \
-  metal-cpp/QuartzCore/../Foundation/NSDefines.hpp \
-  metal-cpp/QuartzCore/CAPrivate.hpp \
-  metal-cpp/QuartzCore/CAMetalLayer.hpp \
-  metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp \
-  metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp \
-  metal-cpp/QuartzCore/../Foundation/NSTypes.hpp src/Renderer.hpp \
-  src/SharedMemory.hpp src/Common.h src/SimRenderer.hpp \
-  src/CreatureRenderData.h
-/opt/homebrew/include/SDL2/SDL.h:
-/opt/homebrew/include/SDL2/SDL_main.h:
-/opt/homebrew/include/SDL2/SDL_stdinc.h:
-/opt/homebrew/include/SDL2/SDL_config.h:
-/opt/homebrew/include/SDL2/SDL_platform.h:
-/opt/homebrew/include/SDL2/begin_code.h:
-/opt/homebrew/include/SDL2/close_code.h:
-/opt/homebrew/include/SDL2/SDL_assert.h:
-/opt/homebrew/include/SDL2/SDL_atomic.h:
-/opt/homebrew/include/SDL2/SDL_audio.h:
-/opt/homebrew/include/SDL2/SDL_error.h:
-/opt/homebrew/include/SDL2/SDL_endian.h:
-/opt/homebrew/include/SDL2/SDL_mutex.h:
-/opt/homebrew/include/SDL2/SDL_thread.h:
-/opt/homebrew/include/SDL2/SDL_rwops.h:
-/opt/homebrew/include/SDL2/SDL_clipboard.h:
-/opt/homebrew/include/SDL2/SDL_cpuinfo.h:
-/opt/homebrew/include/SDL2/SDL_events.h:
-/opt/homebrew/include/SDL2/SDL_video.h:
-/opt/homebrew/include/SDL2/SDL_pixels.h:
-/opt/homebrew/include/SDL2/SDL_rect.h:
-/opt/homebrew/include/SDL2/SDL_surface.h:
-/opt/homebrew/include/SDL2/SDL_blendmode.h:
-/opt/homebrew/include/SDL2/SDL_keyboard.h:
-/opt/homebrew/include/SDL2/SDL_keycode.h:
-/opt/homebrew/include/SDL2/SDL_scancode.h:
-/opt/homebrew/include/SDL2/SDL_mouse.h:
-/opt/homebrew/include/SDL2/SDL_joystick.h:
-/opt/homebrew/include/SDL2/SDL_guid.h:
-/opt/homebrew/include/SDL2/SDL_gamecontroller.h:
-/opt/homebrew/include/SDL2/SDL_sensor.h:
-/opt/homebrew/include/SDL2/SDL_quit.h:
-/opt/homebrew/include/SDL2/SDL_gesture.h:
-/opt/homebrew/include/SDL2/SDL_touch.h:
-/opt/homebrew/include/SDL2/SDL_filesystem.h:
-/opt/homebrew/include/SDL2/SDL_haptic.h:
-/opt/homebrew/include/SDL2/SDL_hidapi.h:
-/opt/homebrew/include/SDL2/SDL_hints.h:
-/opt/homebrew/include/SDL2/SDL_loadso.h:
-/opt/homebrew/include/SDL2/SDL_log.h:
-/opt/homebrew/include/SDL2/SDL_messagebox.h:
-/opt/homebrew/include/SDL2/SDL_metal.h:
-/opt/homebrew/include/SDL2/SDL_power.h:
-/opt/homebrew/include/SDL2/SDL_render.h:
-/opt/homebrew/include/SDL2/SDL_shape.h:
-/opt/homebrew/include/SDL2/SDL_system.h:
-/opt/homebrew/include/SDL2/SDL_timer.h:
-/opt/homebrew/include/SDL2/SDL_version.h:
-/opt/homebrew/include/SDL2/SDL_locale.h:
-/opt/homebrew/include/SDL2/SDL_misc.h:
-metal-cpp/Foundation/Foundation.hpp:
-metal-cpp/Foundation/NSArray.hpp:
-metal-cpp/Foundation/NSObject.hpp:
-metal-cpp/Foundation/NSDefines.hpp:
-metal-cpp/Foundation/NSPrivate.hpp:
-metal-cpp/Foundation/NSTypes.hpp:
-metal-cpp/Foundation/NSEnumerator.hpp:
-metal-cpp/Foundation/NSAutoreleasePool.hpp:
-metal-cpp/Foundation/NSBundle.hpp:
-metal-cpp/Foundation/NSNotification.hpp:
-metal-cpp/Foundation/NSDictionary.hpp:
-metal-cpp/Foundation/NSString.hpp:
-metal-cpp/Foundation/NSObjCRuntime.hpp:
-metal-cpp/Foundation/NSRange.hpp:
-metal-cpp/Foundation/NSData.hpp:
-metal-cpp/Foundation/NSDate.hpp:
-metal-cpp/Foundation/NSError.hpp:
-metal-cpp/Foundation/NSLock.hpp:
-metal-cpp/Foundation/NSNumber.hpp:
-metal-cpp/Foundation/NSProcessInfo.hpp:
-metal-cpp/Foundation/NSSet.hpp:
-metal-cpp/Foundation/NSSharedPtr.hpp:
-metal-cpp/Foundation/NSURL.hpp:
+  metal-cpp/Metal/MTL4LinkingDescriptor.hpp
+src/SimRenderer.hpp:
+src/Common.h:
+src/CreatureRenderData.h:
 metal-cpp/Metal/Metal.hpp:
 metal-cpp/Metal/MTLAccelerationStructure.hpp:
 metal-cpp/Metal/../Foundation/Foundation.hpp:
+metal-cpp/Metal/../Foundation/NSArray.hpp:
+metal-cpp/Metal/../Foundation/NSObject.hpp:
+metal-cpp/Metal/../Foundation/NSDefines.hpp:
+metal-cpp/Metal/../Foundation/NSPrivate.hpp:
+metal-cpp/Metal/../Foundation/NSTypes.hpp:
+metal-cpp/Metal/../Foundation/NSEnumerator.hpp:
+metal-cpp/Metal/../Foundation/NSAutoreleasePool.hpp:
+metal-cpp/Metal/../Foundation/NSBundle.hpp:
+metal-cpp/Metal/../Foundation/NSNotification.hpp:
+metal-cpp/Metal/../Foundation/NSDictionary.hpp:
+metal-cpp/Metal/../Foundation/NSString.hpp:
+metal-cpp/Metal/../Foundation/NSObjCRuntime.hpp:
+metal-cpp/Metal/../Foundation/NSRange.hpp:
+metal-cpp/Metal/../Foundation/NSData.hpp:
+metal-cpp/Metal/../Foundation/NSDate.hpp:
+metal-cpp/Metal/../Foundation/NSError.hpp:
+metal-cpp/Metal/../Foundation/NSLock.hpp:
+metal-cpp/Metal/../Foundation/NSNumber.hpp:
+metal-cpp/Metal/../Foundation/NSProcessInfo.hpp:
+metal-cpp/Metal/../Foundation/NSSet.hpp:
+metal-cpp/Metal/../Foundation/NSSharedPtr.hpp:
+metal-cpp/Metal/../Foundation/NSURL.hpp:
 metal-cpp/Metal/MTLAccelerationStructureTypes.hpp:
 metal-cpp/Metal/MTLDefines.hpp:
-metal-cpp/Metal/../Foundation/NSDefines.hpp:
 metal-cpp/Metal/MTLPrivate.hpp:
 metal-cpp/Metal/MTLResource.hpp:
 metal-cpp/Metal/MTLAllocation.hpp:
@@ -328,19 +224,3 @@ metal-cpp/Metal/MTL4PipelineDataSetSerializer.hpp:
 metal-cpp/Metal/MTL4Archive.hpp:
 metal-cpp/Metal/MTL4BinaryFunctionDescriptor.hpp:
 metal-cpp/Metal/MTL4LinkingDescriptor.hpp:
-metal-cpp/QuartzCore/QuartzCore.hpp:
-metal-cpp/QuartzCore/CAMetalDrawable.hpp:
-metal-cpp/QuartzCore/../Metal/MTLDrawable.hpp:
-metal-cpp/QuartzCore/../Metal/MTLTexture.hpp:
-metal-cpp/QuartzCore/CADefines.hpp:
-metal-cpp/QuartzCore/../Foundation/NSDefines.hpp:
-metal-cpp/QuartzCore/CAPrivate.hpp:
-metal-cpp/QuartzCore/CAMetalLayer.hpp:
-metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp:
-metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp:
-metal-cpp/QuartzCore/../Foundation/NSTypes.hpp:
-src/Renderer.hpp:
-src/SharedMemory.hpp:
-src/Common.h:
-src/SimRenderer.hpp:
-src/CreatureRenderData.h:
