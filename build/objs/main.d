@@ -154,7 +154,8 @@ build/objs/main.o: src/main.cpp /opt/homebrew/include/SDL2/SDL.h \
   metal-cpp/QuartzCore/CAMetalLayer.hpp \
   metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp \
   metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp \
-  metal-cpp/QuartzCore/../Foundation/NSTypes.hpp src/Renderer.hpp
+  metal-cpp/QuartzCore/../Foundation/NSTypes.hpp src/Renderer.hpp \
+  src/SharedMemory.hpp src/Common.h
 /opt/homebrew/include/SDL2/SDL.h:
 /opt/homebrew/include/SDL2/SDL_main.h:
 /opt/homebrew/include/SDL2/SDL_stdinc.h:
@@ -338,3 +339,5 @@ metal-cpp/QuartzCore/../Metal/MTLPixelFormat.hpp:
 metal-cpp/QuartzCore/../Metal/MTLResidencySet.hpp:
 metal-cpp/QuartzCore/../Foundation/NSTypes.hpp:
 src/Renderer.hpp:
+src/SharedMemory.hpp:
+src/Common.h:

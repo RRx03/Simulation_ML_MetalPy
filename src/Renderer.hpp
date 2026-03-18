@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SharedMemory.hpp"
 #include "metal-cpp/Metal/Metal.hpp"
 #include "metal-cpp/QuartzCore/QuartzCore.hpp"
 #include <SDL.h>
@@ -10,8 +11,6 @@ public:
   ~Renderer();
   void renderFrame();
   void resize(int width, int height);
-  void initSim();
-
 
 private:
   void buildShaders();
@@ -30,7 +29,7 @@ private:
   MTL::Buffer *_vertexBuffer = nullptr;
   MTL::Buffer *_computeBuffer = nullptr;
   MTL::Buffer *_uniformBuffer;
-  MTL::Buffer * shared_buf;
+  SharedMemory _shm;
 
   float _angle;        // TEMPLATE
   int _width, _height; // Pour le ratio d'aspect

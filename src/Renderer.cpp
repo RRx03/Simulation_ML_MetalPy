@@ -48,6 +48,7 @@ Renderer::~Renderer() {
     _device->release();
   if (_msaaTexture)
     _msaaTexture->release();
+  _shm.cleanup();
 }
 
 void Renderer::buildShaders() {
@@ -103,21 +104,10 @@ void Renderer::buildShaders() {
   defaultLibrary->release();
 }
 void Renderer::buildBuffers() {
-  std::vector<VertexData> vertices = {
-      {{0.0f, 0.5f, 0.0f}, {1.0f, 0.0f, 0.0f}},
-      {{-0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f}},
-      {{0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 1.0f}}};
-
-  size_t bufferSize = vertices.size() * sizeof(VertexData);
-  _vertexBuffer = _device->newBuffer(vertices.data(), bufferSize,
-                                     MTL::ResourceStorageModeShared);
-
-  _uniformBuffer =
-      _device->newBuffer(sizeof(Uniforms), MTL::ResourceStorageModeShared);
-
-  size_t computeBufferSize = sizeof(float) * 100;
-  _computeBuffer =
-      _device->newBuffer(computeBufferSize, MTL::ResourceStorageModeShared);
+  _shm = SharedMemory();
+  if (!_shm.init(_device)) {
+    throw std::runtime_error("Failed to initialize shared memory");
+  }
 }
 
 void Renderer::updateUniforms() {
@@ -179,8 +169,6 @@ void Renderer::resize(int width, int height) {
 
 void Renderer::renderFrame() {
 
-  updateUniforms();
-
   NS::AutoreleasePool *pool = NS::AutoreleasePool::alloc()->init();
   CA::MetalDrawable *drawable = _layer->nextDrawable();
 
@@ -237,12 +225,4 @@ void Renderer::renderFrame() {
   }
 
   pool->release();
-}
-
-void Renderer::initSim() {
-  this->shared_buf = this->_device->newBuffer(sizeof(FrameBuffer) * 2,
-                                              MTL::ResourceStorageModeShared);
-
-  FrameBuffer *buffers = (FrameBuffer *)shared_buf->contents();
-
 }

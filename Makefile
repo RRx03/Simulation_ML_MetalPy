@@ -47,8 +47,11 @@ clean:
 	rm -rf $(BUILD_DIR)
 	@echo "Dossier build nettoyé."
 
+brain:
+	python src/main.py
+
 run: all
-	$(BIN_PATH)
+	@trap 'kill 0' EXIT; $(BIN_PATH) & python3 src/main.py
 
 bear:
 	make clean

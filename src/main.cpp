@@ -51,7 +51,7 @@ int main() {
       }
     }
 
-    renderer->renderFrame();
+    // renderer->renderFrame();
     SDL_Delay(10);
   }
 
